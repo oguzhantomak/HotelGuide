@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace HotelManagementService.API.Controllers;
+﻿namespace HotelManagementService.API.Controllers;
 
 
 /// <summary>
@@ -20,14 +18,19 @@ public class HotelController : ControllerBase
 
     /// <summary>
     /// EN: Creates a new hotel.
-    /// TR: Yeni bir otel oluşturur.
-    /// </summary>
+    /// TR: Yeni bir otel oluşturur.</summary>
+    /// <param name="request">
+    /// EN: Hotel information.
+    /// TR: Otel bilgileri.
+    /// </param>
+    /// <returns>
+    /// EN: ID of the created hotel.
+    /// TR: Oluşturulan otelin ID'si.
+    /// </returns>
     [HttpPost]
-    public async Task<IActionResult> Hotel(string name, string address)
+    public async Task<IActionResult> Hotel([FromBody] HotelDto request)
     {
-        //TODO:parametre CreateHotelRequest'e çevirilecek!
-
-        var hotelId = await _hotelService.CreateHotelAsync(name, address);
+        var hotelId = await _hotelService.CreateHotelAsync(request);
         return CreatedAtAction(nameof(Hotel), new { id = hotelId }, null);
     }
 

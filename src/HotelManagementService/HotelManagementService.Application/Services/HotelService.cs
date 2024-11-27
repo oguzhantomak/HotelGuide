@@ -1,4 +1,6 @@
-﻿namespace HotelManagementService.Application.Services;
+﻿using HotelManagementService.Application.Dtos;
+
+namespace HotelManagementService.Application.Services;
 
 /// <summary>
 /// EN: Implements hotel management services.
@@ -20,7 +22,7 @@ public class HotelService : IHotelService
 
         foreach (var contact in hotelDto.ContactInformation)
         {
-            hotel.AddContactInformation(new ContactInformation(new ContactType(contact.Type), contact.Content));
+            hotel.AddContactInformation(new ContactInformation(ContactType.FromString(contact.Type), contact.Content));
         }
 
         foreach (var person in hotelDto.ResponsiblePeople)
@@ -37,7 +39,9 @@ public class HotelService : IHotelService
         var hotel = await _hotelRepository.GetByIdAsync(hotelId);
         if (hotel == null) throw new ApplicationException("Hotel not found.");
 
-        hotel.AddContactInformation(new ContactInformation(new ContactType(contactInformationDto.Type), contactInformationDto.Content));
+        hotel.AddContactInformation(new ContactInformation(ContactType.FromString(contactInformationDto.Type), contactInformationDto.Content));
+
+
         await _hotelRepository.UpdateAsync(hotel);
     }
 
@@ -81,5 +85,10 @@ public class HotelService : IHotelService
                 LastName = r.LastName
             }).ToList()
         };
+    }
+
+    public async Task DeleteHotelAsync(Guid hotelId)
+    {
+        await _hotelRepository.DeleteAsync(hotelId);
     }
 }

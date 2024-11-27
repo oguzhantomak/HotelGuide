@@ -11,4 +11,5 @@ public interface IHotelService
     Task AddResponsiblePersonAsync(Guid hotelId, ResponsiblePersonDto responsiblePersonDto);
     Task UpdateHotelAddressAsync(Guid hotelId, string street, string city, string country);
     Task<HotelDto> GetHotelDetailsAsync(Guid hotelId);
+    Task DeleteHotelAsync(Guid hotelId);
 }

@@ -6,9 +6,9 @@
 /// </summary>
 public class ContactType
 {
-    public static ContactType Phone => new("Phone");
-    public static ContactType Email => new("Email");
-    public static ContactType Location => new("Location");
+    public static readonly ContactType Phone = new("Phone");
+    public static readonly ContactType Email = new("Email");
+    public static readonly ContactType Location = new("Location");
 
     public string Type { get; private set; }
 
@@ -17,8 +17,37 @@ public class ContactType
         Type = type;
     }
 
+    /// <summary>
+    /// EN: Factory method to create a ContactType from a string.
+    /// TR: Bir string değerinden ContactType oluşturmak için fabrika metodu.
+    /// </summary>
+    public static ContactType FromString(string type)
+    {
+        return type switch
+        {
+            "Phone" => Phone,
+            "Email" => Email,
+            "Location" => Location,
+            _ => throw new ArgumentException($"Invalid contact type: {type}")
+        };
+    }
+
     public override string ToString()
     {
         return Type;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is ContactType other)
+        {
+            return Type == other.Type;
+        }
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Type.GetHashCode();
     }
 }

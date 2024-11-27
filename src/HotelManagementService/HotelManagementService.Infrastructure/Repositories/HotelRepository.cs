@@ -1,4 +1,6 @@
-﻿namespace HotelManagementService.Infrastructure.Repositories;
+﻿using HotelManagementService.Infrastructure.Data;
+
+namespace HotelManagementService.Infrastructure.Repositories;
 
 /// <summary>
 /// EN: EF Core implementation for hotel repository.
