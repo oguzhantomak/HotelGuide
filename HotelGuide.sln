@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementService.API"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementService.Domain", "src\HotelManagementService\HotelManagementService.Domain\HotelManagementService.Domain.csproj", "{1EA627B3-C61A-4AB1-97F5-F431BCE3FE59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementService.Infrastructure", "src\HotelManagementService\HotelManagementService.Infrastructure\HotelManagementService.Infrastructure.csproj", "{AE0CDFB6-7BC5-4B3A-BD60-B60D30B5CA69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementService.Application", "src\HotelManagementService\HotelManagementService.Application\HotelManagementService.Application.csproj", "{BA0CB47C-E111-4AC8-858F-0F7CB2653777}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{1EA627B3-C61A-4AB1-97F5-F431BCE3FE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EA627B3-C61A-4AB1-97F5-F431BCE3FE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EA627B3-C61A-4AB1-97F5-F431BCE3FE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0CDFB6-7BC5-4B3A-BD60-B60D30B5CA69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0CDFB6-7BC5-4B3A-BD60-B60D30B5CA69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0CDFB6-7BC5-4B3A-BD60-B60D30B5CA69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0CDFB6-7BC5-4B3A-BD60-B60D30B5CA69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0CB47C-E111-4AC8-858F-0F7CB2653777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0CB47C-E111-4AC8-858F-0F7CB2653777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0CB47C-E111-4AC8-858F-0F7CB2653777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0CB47C-E111-4AC8-858F-0F7CB2653777}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CC2EA850-E9BC-4A2B-A56C-BB37D319D305} = {D2306830-B4FA-454B-83E9-2D0F4116F71A}
 		{1EA627B3-C61A-4AB1-97F5-F431BCE3FE59} = {D2306830-B4FA-454B-83E9-2D0F4116F71A}
+		{AE0CDFB6-7BC5-4B3A-BD60-B60D30B5CA69} = {D2306830-B4FA-454B-83E9-2D0F4116F71A}
+		{BA0CB47C-E111-4AC8-858F-0F7CB2653777} = {D2306830-B4FA-454B-83E9-2D0F4116F71A}
 	EndGlobalSection
 EndGlobal
