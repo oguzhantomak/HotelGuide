@@ -1,4 +1,5 @@
-﻿using HotelManagementService.Application.Dtos;
+﻿using HotelManagementService.Application.Constants;
+using HotelManagementService.Application.Dtos;
 
 namespace HotelManagementService.Application.Services;
 
@@ -37,7 +38,7 @@ public class HotelService : IHotelService
     public async Task AddContactInformationAsync(Guid hotelId, ContactInformationDto contactInformationDto)
     {
         var hotel = await _hotelRepository.GetByIdAsync(hotelId);
-        if (hotel == null) throw new ApplicationException("Hotel not found.");
+        if (hotel == null) throw new ApplicationException(ExceptionMessages.HotelNotFound);
 
         hotel.AddContactInformation(new ContactInformation(ContactType.FromString(contactInformationDto.Type), contactInformationDto.Content));
 
@@ -48,7 +49,7 @@ public class HotelService : IHotelService
     public async Task AddResponsiblePersonAsync(Guid hotelId, ResponsiblePersonDto responsiblePersonDto)
     {
         var hotel = await _hotelRepository.GetByIdAsync(hotelId);
-        if (hotel == null) throw new ApplicationException("Hotel not found.");
+        if (hotel == null) throw new ApplicationException(ExceptionMessages.HotelNotFound);
 
         hotel.AddResponsiblePerson(new ResponsiblePerson(responsiblePersonDto.FirstName, responsiblePersonDto.LastName));
         await _hotelRepository.UpdateAsync(hotel);
@@ -57,7 +58,7 @@ public class HotelService : IHotelService
     public async Task UpdateHotelAddressAsync(Guid hotelId, string street, string city, string country)
     {
         var hotel = await _hotelRepository.GetByIdAsync(hotelId);
-        if (hotel == null) throw new ApplicationException("Hotel not found.");
+        if (hotel == null) throw new ApplicationException(ExceptionMessages.HotelNotFound);
 
         hotel.UpdateAddress(new Address(street, city, country));
         await _hotelRepository.UpdateAsync(hotel);
@@ -66,7 +67,7 @@ public class HotelService : IHotelService
     public async Task<HotelDto> GetHotelDetailsAsync(Guid hotelId)
     {
         var hotel = await _hotelRepository.GetByIdAsync(hotelId);
-        if (hotel == null) throw new ApplicationException("Hotel not found.");
+        if (hotel == null) throw new ApplicationException(ExceptionMessages.HotelNotFound);
 
         return new HotelDto
         {
@@ -90,5 +91,13 @@ public class HotelService : IHotelService
     public async Task DeleteHotelAsync(Guid hotelId)
     {
         await _hotelRepository.DeleteAsync(hotelId);
+    }
+
+    public async Task RemoveContactInformationAsync(Guid hotelId, Guid contactId)
+    {
+        var hotel = await _hotelRepository.GetByIdAsync(hotelId);
+        if (hotel == null) throw new ApplicationException(ExceptionMessages.HotelNotFound);
+        hotel.RemoveContactInformation(contactId);
+        await _hotelRepository.UpdateAsync(hotel);
     }
 }

@@ -12,4 +12,5 @@ public interface IHotelService
     Task UpdateHotelAddressAsync(Guid hotelId, string street, string city, string country);
     Task<HotelDto> GetHotelDetailsAsync(Guid hotelId);
     Task DeleteHotelAsync(Guid hotelId);
+    Task RemoveContactInformationAsync(Guid hotelId, Guid contactId);
 }
