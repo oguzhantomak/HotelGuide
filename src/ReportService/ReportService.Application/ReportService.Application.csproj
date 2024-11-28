@@ -10,4 +10,8 @@
     <ProjectReference Include="..\ReportService.Infrastructure\ReportService.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
 </Project>
