@@ -46,4 +46,11 @@ public class Hotel : IAggregateRoot
         if (newAddress == null) throw new DomainException("Address cannot be null.");
         Address = newAddress;
     }
+
+    public void RemoveContactInformation(Guid contactId)
+    {
+        var contact = _contactInformation.FirstOrDefault(x => x.Id == contactId);
+        if (contact == null) throw new DomainException("Contact information not found.");
+        _contactInformation.Remove(contact);
+    }
 }

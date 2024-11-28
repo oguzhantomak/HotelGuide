@@ -56,4 +56,32 @@ public class HotelController : ControllerBase
         await _hotelService.DeleteHotelAsync(id);
         return NoContent();
     }
+
+    /// <summary>
+    /// EN: Adds contact information to a hotel.
+    /// TR: Bir otele iletişim bilgisi ekler.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="request"></param>
+    /// <returns></returns>
+    [HttpPost("{id}/contact")]
+    public async Task<IActionResult> AddContactInformation(Guid id, [FromBody] ContactInformationDto request)
+    {
+        await _hotelService.AddContactInformationAsync(id, request);
+        return NoContent();
+    }
+
+    /// <summary>
+    /// EN: Removes contact information from a hotel.
+    /// TR: Bir otelden iletişim bilgisini kaldırır.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="contactId"></param>
+    /// <returns></returns>
+    [HttpDelete("{id}/contact/{contactId}")]
+    public async Task<IActionResult> RemoveContactInformation(Guid id, Guid contactId)
+    {
+        await _hotelService.RemoveContactInformationAsync(id, contactId);
+        return NoContent();
+    }
 }
