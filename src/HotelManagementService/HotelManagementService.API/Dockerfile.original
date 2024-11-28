@@ -13,9 +13,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/HotelManagementService/HotelManagementService.API/HotelManagementService.API.csproj", "src/HotelManagementService/HotelManagementService.API/"]
-COPY ["src/HotelManagementService/HotelManagementService.Application/HotelManagementService.Application.csproj", "src/HotelManagementService/HotelManagementService.Application/"]
-COPY ["src/HotelManagementService/HotelManagementService.Domain/HotelManagementService.Domain.csproj", "src/HotelManagementService/HotelManagementService.Domain/"]
-COPY ["src/HotelManagementService/HotelManagementService.Infrastructure/HotelManagementService.Infrastructure.csproj", "src/HotelManagementService/HotelManagementService.Infrastructure/"]
 RUN dotnet restore "./src/HotelManagementService/HotelManagementService.API/HotelManagementService.API.csproj"
 COPY . .
 WORKDIR "/src/src/HotelManagementService/HotelManagementService.API"
