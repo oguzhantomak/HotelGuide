@@ -4,7 +4,7 @@ services:
   hotelmanagementservice:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__MongoDb: mongodb://mongodb:27017
+      ConnectionStrings__DefaultConnection: Host=postgres;Database=HotelGuide;Username=postgres;Password=password
       RabbitMQ__HostName: rabbitmq
       ASPNETCORE_HTTP_PORTS: "5000"
       ASPNETCORE_HTTPS_PORTS: "5050"

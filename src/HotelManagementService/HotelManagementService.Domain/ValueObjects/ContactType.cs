@@ -23,11 +23,14 @@ public class ContactType
     /// </summary>
     public static ContactType FromString(string type)
     {
-        return type switch
+        if (string.IsNullOrWhiteSpace(type))
+            throw new ArgumentException(ExceptionMessages.InvalidContactType);
+
+        return type.Trim().ToLowerInvariant() switch
         {
-            "Phone" => Phone,
-            "Email" => Email,
-            "Location" => Location,
+            "phone" => Phone,
+            "email" => Email,
+            "location" => Location,
             _ => throw new ArgumentException($"{ExceptionMessages.InvalidContactType} {type}")
         };
     }

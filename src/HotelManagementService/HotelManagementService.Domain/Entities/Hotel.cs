@@ -18,6 +18,7 @@ public class Hotel : IAggregateRoot
     private readonly List<HotelCreatedEvent> _domainEvents = new();
     public IReadOnlyCollection<HotelCreatedEvent> DomainEvents => _domainEvents.AsReadOnly();
 
+    private Hotel() { }
     public Hotel(string name, Address address)
     {
         if (string.IsNullOrWhiteSpace(name)) throw new DomainException(ExceptionMessages.HotelNameCannotBeEmpty);

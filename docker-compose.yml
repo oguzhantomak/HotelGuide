@@ -12,7 +12,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5000
       ASPNETCORE_HTTP_PORTS: 5000
-      ConnectionStrings__MongoDb: mongodb://mongodb:27017
+      ConnectionStrings__DefaultConnection: Host=postgres;Database=HotelGuide;Username=postgres;Password=password
       RabbitMQ__HostName: rabbitmq
 
   reportservice:
@@ -41,3 +41,18 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: HotelGuide
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
