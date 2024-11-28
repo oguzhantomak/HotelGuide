@@ -1,4 +1,6 @@
-﻿namespace ReportService.Domain.Entities;
+﻿using ReportService.Domain.Constants;
+
+namespace ReportService.Domain.Entities;
 
 /// <summary>
 /// EN: Represents location-based statistics.
@@ -12,7 +14,7 @@ public class LocationStatistic
 
     public LocationStatistic(string location, int hotelCount, int phoneNumberCount)
     {
-        if (string.IsNullOrWhiteSpace(location)) throw new DomainException("Location cannot be empty.");
+        if (string.IsNullOrWhiteSpace(location)) throw new DomainException(ExceptionMessages.LocationCannotBeEmpty);
         Location = location;
         HotelCount = hotelCount;
         PhoneNumberCount = phoneNumberCount;

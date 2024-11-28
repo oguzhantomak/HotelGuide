@@ -1,4 +1,6 @@
-﻿namespace ReportService.Domain.ValueObjects;
+﻿using ReportService.Domain.Constants;
+
+namespace ReportService.Domain.ValueObjects;
 
 /// <summary>
 /// EN: Represents the status of a report.
@@ -6,8 +8,8 @@
 /// </summary>
 public class ReportStatus
 {
-    public static ReportStatus Preparing => new("Preparing");
-    public static ReportStatus Completed => new("Completed");
+    public static ReportStatus Preparing => new(ReportStatusMessages.Preparing);
+    public static ReportStatus Completed => new(ReportStatusMessages.Completed);
 
     public string Status { get; private set; }
 

@@ -1,5 +1,6 @@
-﻿namespace ReportService.Application.Services;
+﻿using ReportService.Application.Constants;
 
+namespace ReportService.Application.Services;
 
 /// <summary>
 /// EN: Implements report management services.
@@ -24,7 +25,7 @@ public class ReportService : IReportService
     public async Task<ReportDto> GetReportDetailsAsync(Guid reportId)
     {
         var report = await _reportRepository.GetByIdAsync(reportId);
-        if (report == null) throw new ApplicationException("Report not found.");
+        if (report == null) throw new ApplicationException(ExceptionMessages.ReportNotFound);
 
         return new ReportDto
         {

@@ -1,4 +1,6 @@
-﻿namespace ReportService.Domain.Entities;
+﻿using ReportService.Domain.Constants;
+
+namespace ReportService.Domain.Entities;
 
 
 /// <summary>
@@ -29,7 +31,7 @@ public class Report : IAggregateRoot
 
     public void AddStatistic(LocationStatistic statistic)
     {
-        if (statistic == null) throw new DomainException("Statistic cannot be null.");
+        if (statistic == null) throw new DomainException(ExceptionMessages.StatisticCannotBeNull);
         _statistics.Add(statistic);
     }
 

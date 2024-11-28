@@ -1,8 +1,4 @@
-﻿using System.Text.Json;
-using System.Text;
-using RabbitMQ.Client;
-
-namespace ReportService.Infrastructure.Messaging;
+﻿namespace ReportService.Infrastructure.Messaging;
 
 /// <summary>
 /// EN: RabbitMQ implementation for publishing messages to a queue.
