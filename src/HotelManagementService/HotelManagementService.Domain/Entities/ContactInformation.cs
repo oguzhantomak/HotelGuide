@@ -12,7 +12,7 @@ public class ContactInformation
 
     public ContactInformation(ContactType type, string content)
     {
-        if (string.IsNullOrWhiteSpace(content)) throw new DomainException("Content cannot be empty.");
+        if (string.IsNullOrWhiteSpace(content)) throw new DomainException(ExceptionMessages.ContentCannotBeEmpty);
         Id = Guid.NewGuid();
         Type = type;
         Content = content;

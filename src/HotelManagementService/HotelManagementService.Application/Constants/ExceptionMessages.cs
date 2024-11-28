@@ -4,7 +4,7 @@
 /// EN: Exception messages.
 /// TR: Hata mesajları.
 /// </summary>
-public class ExceptionMessages
+public static class ExceptionMessages
 {
     public const string HotelNotFound = "Hotel not found.";
 }

@@ -28,7 +28,7 @@ public class ContactType
             "Phone" => Phone,
             "Email" => Email,
             "Location" => Location,
-            _ => throw new ArgumentException($"Invalid contact type: {type}")
+            _ => throw new ArgumentException($"{ExceptionMessages.InvalidContactType} {type}")
         };
     }
 

@@ -20,7 +20,7 @@ public class Hotel : IAggregateRoot
 
     public Hotel(string name, Address address)
     {
-        if (string.IsNullOrWhiteSpace(name)) throw new DomainException("Hotel name cannot be empty.");
+        if (string.IsNullOrWhiteSpace(name)) throw new DomainException(ExceptionMessages.HotelNameCannotBeEmpty);
         Id = Guid.NewGuid();
         Name = name;
         Address = address;
@@ -31,26 +31,26 @@ public class Hotel : IAggregateRoot
 
     public void AddContactInformation(ContactInformation contactInformation)
     {
-        if (contactInformation == null) throw new DomainException("Contact information cannot be null.");
+        if (contactInformation == null) throw new DomainException(ExceptionMessages.ContactInformationCannotBeNull);
         _contactInformation.Add(contactInformation);
     }
 
     public void AddResponsiblePerson(ResponsiblePerson responsiblePerson)
     {
-        if (responsiblePerson == null) throw new DomainException("Responsible person cannot be null.");
+        if (responsiblePerson == null) throw new DomainException(ExceptionMessages.ResponsiblePersonCannotBeNull);
         _responsiblePeople.Add(responsiblePerson);
     }
 
     public void UpdateAddress(Address newAddress)
     {
-        if (newAddress == null) throw new DomainException("Address cannot be null.");
+        if (newAddress == null) throw new DomainException(ExceptionMessages.AddressCannotBeNull);
         Address = newAddress;
     }
 
     public void RemoveContactInformation(Guid contactId)
     {
         var contact = _contactInformation.FirstOrDefault(x => x.Id == contactId);
-        if (contact == null) throw new DomainException("Contact information not found.");
+        if (contact == null) throw new DomainException(ExceptionMessages.ContactInformationNotFound);
         _contactInformation.Remove(contact);
     }
 }

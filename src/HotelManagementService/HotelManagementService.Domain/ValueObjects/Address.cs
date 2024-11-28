@@ -12,9 +12,9 @@ public class Address
 
     public Address(string street, string city, string country)
     {
-        if (string.IsNullOrWhiteSpace(street)) throw new DomainException("Street cannot be empty.");
-        if (string.IsNullOrWhiteSpace(city)) throw new DomainException("City cannot be empty.");
-        if (string.IsNullOrWhiteSpace(country)) throw new DomainException("Country cannot be empty.");
+        if (string.IsNullOrWhiteSpace(street)) throw new DomainException(ExceptionMessages.StreetCannotBeEmpty);
+        if (string.IsNullOrWhiteSpace(city)) throw new DomainException(ExceptionMessages.CityCannotBeEmpty);
+        if (string.IsNullOrWhiteSpace(country)) throw new DomainException(ExceptionMessages.CountryCannotBeEmpty);
 
         Street = street;
         City = city;
