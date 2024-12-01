@@ -1,0 +1,79 @@
+version: '3.9'
+
+services:
+  hotelmanagementservice:
+    build:
+      context: ./src/HotelManagementService/HotelManagementService.API
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+      - "5050:5050"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:5000
+      ASPNETCORE_HTTP_PORTS: 5000
+      ConnectionStrings__MongoDb: mongodb://mongodb:27017
+      RabbitMQ__HostName: rabbitmq
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - app-network
+
+  reportservice:
+    build:
+      context: ./src/ReportService/ReportService.API
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+      - "5051:5051"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:5001
+      ASPNETCORE_HTTP_PORTS: 5001
+      ConnectionStrings__MongoDb: mongodb://mongodb:27017
+      RabbitMQ__HostName: rabbitmq
+      HotelManagement__BaseUrl: http://hotelmanagementservice:5000
+    depends_on:
+      - mongodb
+      - rabbitmq
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: HotelGuide
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,14 @@
+﻿global using MongoDB.Driver;
+global using Microsoft.AspNetCore.Mvc;
+global using ReportService.Application.Interfaces;
+global using RabbitMQ.Client;
+global using ReportService.Infrastructure.Messaging;
+global using IConnectionFactory = RabbitMQ.Client.IConnectionFactory;
+global using MongoDB.Bson;
+global using MongoDB.Bson.Serialization;
+global using MongoDB.Bson.Serialization.Serializers;
+global using ReportService.Application.Repositories;
+global using ReportService.Application.Messaging;
+global using ReportService.Application.HttpClients;
+global using ReportService.Infrastructure.HttpClients;
+global using static ReportService.Infrastructure.Messaging.Consumer;
