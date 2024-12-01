@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportService.API", "src\Re
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{10F5058A-CDD8-417E-B4AB-BC60386825AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementService.Tests", "src\HotelManagementService\HotelManagementService.Tests\HotelManagementService.Tests.csproj", "{E62E6FA4-F66E-406C-B440-000A78FC10CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportService.Tests", "src\ReportService\ReportService.Tests\ReportService.Tests.csproj", "{ECD8CA96-EA68-4835-AB28-99E8E57F194F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{10F5058A-CDD8-417E-B4AB-BC60386825AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10F5058A-CDD8-417E-B4AB-BC60386825AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10F5058A-CDD8-417E-B4AB-BC60386825AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E62E6FA4-F66E-406C-B440-000A78FC10CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E62E6FA4-F66E-406C-B440-000A78FC10CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E62E6FA4-F66E-406C-B440-000A78FC10CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E62E6FA4-F66E-406C-B440-000A78FC10CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD8CA96-EA68-4835-AB28-99E8E57F194F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD8CA96-EA68-4835-AB28-99E8E57F194F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD8CA96-EA68-4835-AB28-99E8E57F194F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD8CA96-EA68-4835-AB28-99E8E57F194F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +92,7 @@ Global
 		{FF1A3D83-4732-4BEA-BAE6-65B9D734A665} = {D7861437-B443-40AA-8565-2EB91394E99E}
 		{4C2D523A-EAB9-4A31-ABC1-79008F86EB62} = {D7861437-B443-40AA-8565-2EB91394E99E}
 		{F0C5DA3B-35DB-40D8-B381-4F935178A134} = {D7861437-B443-40AA-8565-2EB91394E99E}
+		{E62E6FA4-F66E-406C-B440-000A78FC10CE} = {D2306830-B4FA-454B-83E9-2D0F4116F71A}
+		{ECD8CA96-EA68-4835-AB28-99E8E57F194F} = {D7861437-B443-40AA-8565-2EB91394E99E}
 	EndGlobalSection
 EndGlobal
