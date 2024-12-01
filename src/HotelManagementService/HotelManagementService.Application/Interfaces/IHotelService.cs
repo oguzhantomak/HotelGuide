@@ -13,4 +13,6 @@ public interface IHotelService
     Task<HotelDto> GetHotelDetailsAsync(Guid hotelId);
     Task DeleteHotelAsync(Guid hotelId);
     Task RemoveContactInformationAsync(Guid hotelId, Guid contactId);
+    Task<List<HotelStatisticsDto>> GetStatisticsAsync();
+
 }

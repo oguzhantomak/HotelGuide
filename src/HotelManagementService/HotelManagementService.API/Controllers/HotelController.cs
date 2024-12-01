@@ -84,4 +84,16 @@ public class HotelController : ControllerBase
         await _hotelService.RemoveContactInformationAsync(id, contactId);
         return NoContent();
     }
+
+    /// <summary>
+    /// EN: Statistics of the hotels.
+    /// TR: Otellerin istatistikleri.
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("getstats")]
+    public async Task<IActionResult> GetStatistics()
+    {
+        var statistics = await _hotelService.GetStatisticsAsync();
+        return Ok(statistics);
+    }
 }

@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReportService.Infrastructure\ReportService.Infrastructure.csproj" />
+    <Folder Include="Constants\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
+    <PackageReference Include="MongoDB.Driver" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReportService.Domain\ReportService.Domain.csproj" />
   </ItemGroup>
 
 </Project>

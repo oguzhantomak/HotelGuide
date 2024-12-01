@@ -8,5 +8,6 @@ public class LocationStatisticDto
 {
     public string Location { get; set; }
     public int HotelCount { get; set; }
-    public int PhoneNumberCount { get; set; }
+    public int ContactInformationCount { get; set; }
+    public int ResponsiblePersonCount { get; set; }
 }

@@ -44,4 +44,12 @@ public class HotelRepository : IHotelRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<List<Hotel>> GetAllAsync()
+    {
+        return await _context.Hotels
+            .Include(h => h.ContactInformation)
+            .Include(h => h.ResponsiblePeople)
+            .ToListAsync();
+    }
 }
