@@ -1,4 +1,4 @@
-﻿namespace ReportService.Infrastructure.Repositories;
+﻿namespace ReportService.Application.Repositories;
 
 
 /// <summary>

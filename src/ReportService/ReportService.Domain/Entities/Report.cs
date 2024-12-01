@@ -1,5 +1,4 @@
-﻿using ReportService.Domain.Constants;
-
+﻿using MongoDB.Bson.Serialization.Attributes;
 namespace ReportService.Domain.Entities;
 
 
@@ -9,11 +8,17 @@ namespace ReportService.Domain.Entities;
 /// </summary>
 public class Report : IAggregateRoot
 {
+    [BsonId]
     public Guid Id { get; private set; }
+
+    [BsonElement("createdAt")]
     public DateTime CreatedAt { get; private set; }
+
+    [BsonElement("status")]
     public ReportStatus Status { get; private set; }
-    private readonly List<LocationStatistic> _statistics = new();
-    public IReadOnlyCollection<LocationStatistic> Statistics => _statistics.AsReadOnly();
+
+    [BsonElement("statistics")]
+    public List<LocationStatistic> Statistics { get; set; } = new();
 
     // Domain Events
     private readonly List<ReportCreatedEvent> _domainEvents = new();
@@ -32,7 +37,7 @@ public class Report : IAggregateRoot
     public void AddStatistic(LocationStatistic statistic)
     {
         if (statistic == null) throw new DomainException(ExceptionMessages.StatisticCannotBeNull);
-        _statistics.Add(statistic);
+        Statistics.Add(statistic);
     }
 
     public void MarkAsCompleted()

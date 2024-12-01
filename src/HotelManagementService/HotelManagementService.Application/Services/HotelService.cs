@@ -1,7 +1,4 @@
-﻿using HotelManagementService.Application.Constants;
-using HotelManagementService.Application.Dtos;
-
-namespace HotelManagementService.Application.Services;
+﻿namespace HotelManagementService.Application.Services;
 
 /// <summary>
 /// EN: Implements hotel management services.
@@ -99,5 +96,21 @@ public class HotelService : IHotelService
         if (hotel == null) throw new ApplicationException(ExceptionMessages.HotelNotFound);
         hotel.RemoveContactInformation(contactId);
         await _hotelRepository.UpdateAsync(hotel);
+    }
+
+    public async Task<List<HotelStatisticsDto>> GetStatisticsAsync()
+    {
+        var hotels = await _hotelRepository.GetAllAsync();
+
+        var locationStatistics = hotels.GroupBy(h => h.Address.City)
+            .Select(g => new HotelStatisticsDto
+            {
+                Location = g.Key,
+                HotelCount = g.Count(),
+                ContactInformationCount = g.SelectMany(h => h.ContactInformation).Count(),
+                ResponsiblePersonCount = g.SelectMany(h => h.ResponsiblePeople).Count()
+            }).ToList();
+
+        return locationStatistics;
     }
 }
